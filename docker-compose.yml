@@ -3,6 +3,9 @@ version: '3.6'
 services:
 
   memdevchat-client:
+    build:
+      context: ./memdevchat-client/
+      dockerfile: Dockerfile.dev
     image: memdevchat-client-dev:latest
     volumes:
       - ./src:/memdevchat-client/src
@@ -13,6 +16,9 @@ services:
       - memdevchat-server
 
   memdevchat-server:
+    build:
+      context: ./memdevchat-server/
+      dockerfile: Dockerfile
     image: memdevchat-server:latest
     volumes:
       - ../memdevchat-server/src:/memdevchat-server/src
